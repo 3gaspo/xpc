@@ -13,10 +13,10 @@ from xpc.shapley import explainers
 from xpc.utils import series
 
     
-def pipeline(model, background, X, algo, background_dict={}, X_dict={}, col_mapping=None, features=None, return_all=False,  **kwargs):
+def pipeline(model, background, X, algo, background_dict={}, X_dict={}, col_mapping=None, return_all=False,  **kwargs):
     t0 = perf_counter()
     explainer = explainers.Shapley(model, algo=algo, col_mapping=col_mapping, **kwargs)
-    explainer.fit(background, background_dict, features=features, **kwargs)
+    explainer.fit(background, background_dict, **kwargs)
     parts = explainer(X, X_dict, **kwargs)
     errors_dict = explainer.get_simple_errors()
     tend = perf_counter()
@@ -87,7 +87,7 @@ def filter_days(dico, ind, Nx):
     return new_dico
     
     
-def do_experiment(background, X, param_sets, param_ranges={}, repetitions=1, col_mapping=None, Nx=None, background_dict={}, X_dict={}, do_exact=False, unique_model=True, model=None, save=True, expe_title="lastest_expe", folder="latest_results", **kwargs):
+def do_experiment(background, X, param_sets, param_ranges={}, repetitions=1, col_mapping=None, Nx=None, background_dict={}, X_dict={}, do_exact=False, model=None, save=True, expe_title="lastest_expe", folder="latest_results", **kwargs):
     """experiment on each param_set along param_to_test"""
     
     
@@ -102,6 +102,8 @@ def do_experiment(background, X, param_sets, param_ranges={}, repetitions=1, col
     errors_exact = {key:[[] for k in range(K)] for key in param_sets}
     errors_efficiency = {key:[[] for k in range(K)] for key in param_sets}
     total = S * repetitions * K
+    
+    unique_model = (model is not None)
     
     if unique_model:
         assert(model is not None and hasattr(model, "MyModelMarker"))

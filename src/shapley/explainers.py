@@ -147,6 +147,22 @@ class ExactExplainerGAM(DefaultExplainer):
             self.spline_means = gams.get_approximate_conditional(self.predict_fct, X, self.background, **self.relevant_params)
         shap_values = X_dict["spline_contribs"] - self.spline_means
         return shap_values
+    
+    
+class SplineExplainer(DefaultExplainer):
+    """exact explainer for monovariate GAM"""
+    def __init__(self, predict_fct, do_print=False, n_coalitions=10, n_approx=1, **kwargs):
+        super().__init__(predict_fct, do_print=do_print)
+
+    def fit(self, background, background_dict, **kwargs):
+        self.expected_value = background_dict["background_expectation"]        
+        self.spline_means = background_dict["background_spline_means"]
+        assert(self.spline_means is not None)
+            
+    def __call__(self, X, X_dict={}, **kwargs):
+        assert(X_dict.get("predictions_all") is not None)
+        shap_values = X_dict["spline_contribs"]
+        return shap_values
 
     
 class MonteCarloExplainer(DefaultExplainer):
@@ -231,7 +247,11 @@ class Shapley:
         self.shap_features = self.model.features
 
         #explainer
-        if self.algo=="exact":
+        if self.algo == "splines":
+            if self.model_class != "gam":
+                raise TypeError("Spline contributions can only be computed on GAM models")
+            self.explainer = SplineExplainer(self.model.predict, do_print=do_print, **kwargs)
+        elif self.algo=="exact":
             if self.model_class == "gam":
                 self.explainer = ExactExplainerGAM(self.model.predict, do_print=do_print, **kwargs)
             else:
