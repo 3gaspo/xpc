@@ -1,0 +1,39 @@
+rm(list = ls())
+suppressPackageStartupMessages(require(R39Toolbox))
+library(readr)
+
+# Load =  factor(Instant) + factor(DayType) + s(temp) + s(Posan)
+
+
+# chemin fichier pour lire les données dont on souhaite faire la prévision
+arg1 = 'models/Rmodels/1b/input.csv'
+
+# chemin fichier pour écrire le prévision
+arg2 = 'models/Rmodels/1b/output.csv'
+
+
+data <- suppressMessages(read_delim(arg1, delim = ',')) %>% 
+  mutate(Instant = as.factor(Instant),
+         DayType = as.factor(DayType))
+
+model <- readRDS("models/Rmodels/1b/model.rds")
+
+prev <- predict_details(model, data) 
+#print(colnames(prev))
+
+col_PC <- c("s(temp)")
+column_list <- c("as.factor(Instant)","as.factor(DayType)","s(temp)","s(Posan)")
+
+for (col in column_list){
+  pred_col = paste0("pred_",col)
+  #print(pred_col)
+  data[[pred_col]] <- prev[,col]
+}
+
+
+data$EstimatedLoad <- rowSums(prev)
+data$EstimatedLoad_PC <-  sum(prev[,col_PC])
+
+data$EstimatedLoad_PHC <- data$EstimatedLoad  - data$EstimatedLoad_PC 
+
+write_csv(data, arg2)
