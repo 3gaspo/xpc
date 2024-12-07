@@ -1,5 +1,7 @@
 Welcome to the eXplainability through Positive Contributions (XPC) package.
-Author : Gaspard Berthelier.
+
+Author : Gaspard Berthelier. 
+Developed during my end-of-studies intership in 2024, supervised by Margaux Brégère, within the OSIRIS Departement (R39) at EDF.
 
 ![IMG_4666](https://github.com/user-attachments/assets/2d97d263-1390-44b5-9b81-a475628fbc57)
 
