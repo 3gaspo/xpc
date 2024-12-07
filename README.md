@@ -1,9 +1,12 @@
 Welcome to the eXplainability through Positive Contributions (XPC) package.
 Author : Gaspard Berthelier.
 
-![IMG_4666](https://github.com/user-attachments/assets/2d97d263-1390-44b5-9b81-a475628fbc57)
+<p align="center">
+  ![IMG_4666](https://github.com/user-attachments/assets/2d97d263-1390-44b5-9b81-a475628fbc57)
+</p>
 
 The package enables to decompose the forecasts of a model according to specified parts, e.g a climate and non-climate part.
+
 ![decomposition](https://github.com/user-attachments/assets/ff3ca909-2483-4d99-a11b-cbf8953bb090)
 
 The method is based on Shapley values in addition to novel pipeline to aggregate, heighten and normalize these values to obtain an interpretable decomposition of the time series.
