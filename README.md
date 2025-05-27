@@ -2,7 +2,7 @@ XPC : eXplainability through Positive Contributions
 
 **Note: code is currently undergoing rework.**
 
-![ChatGPT Image 27 mai 2025, 16_14_21 (1)](https://github.com/user-attachments/assets/d05e2751-c60b-48a6-85da-d1c5121ac520)
+![ChatGPT Image 27 mai 2025, 16_14_21 (2)](https://github.com/user-attachments/assets/a73f35cd-e0f1-4552-aa98-c176851d05d8)
 
 The package enables to decompose the forecasts of a model according to specified parts, e.g a climate and non-climate part.
 
