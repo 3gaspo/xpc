@@ -1,8 +1,8 @@
 XPC : eXplainability through Positive Contributions
-Author : Gaspard Berthelier. 
-Developed during my end-of-studies intership in 2024, supervised by Margaux Brégère, within the OSIRIS Departement (R39) at EDF. Logo by Anna Bondarenko.
 
-![IMG_4666](https://github.com/user-attachments/assets/2d97d263-1390-44b5-9b81-a475628fbc57)
+Author : Gaspard Berthelier. 
+
+![ChatGPT Image 27 mai 2025, 16_14_21](https://github.com/user-attachments/assets/4eeca9c5-a413-477c-8f1c-edcba9e0ffe7)
 
 The package enables to decompose the forecasts of a model according to specified parts, e.g a climate and non-climate part.
 
@@ -15,3 +15,6 @@ The method is based on Shapley values in addition to a novel pipeline to aggrega
 Code is currently undergoing rework in order to better accomodate for deep learning models.
 
 More details will be provided in an upcoming paper. Example notebooks are available to experiment on the package.
+
+Developed during my end-of-studies intership in 2024, supervised by Margaux Brégère, within the OSIRIS Departement (R39) at EDF. Logo by Anna Bondarenko.
+
