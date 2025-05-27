@@ -18,5 +18,7 @@ More details will be provided in an upcoming paper. Example notebooks are availa
 
 Author : Gaspard Berthelier. 
 
-Developed during my end-of-studies intership in 2024, supervised by Margaux Brégère, within the OSIRIS Departement (R39) at EDF. Logo by Anna Bondarenko.
+Developed during my end-of-studies intership in 2024, supervised by Margaux Brégère, within the OSIRIS Departement (R39) at EDF.
+
+Logo by [Anna Bondarenko](https://www.artstation.com/oknera).
 
