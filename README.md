@@ -1,6 +1,6 @@
 XPC : eXplainability through Positive Contributions
 
-**Code is currently undergoing rework in order to better accomodate for deep learning models.**
+**Note: code is currently undergoing rework.**
 
 ![ChatGPT Image 27 mai 2025, 16_14_21](https://github.com/user-attachments/assets/4eeca9c5-a413-477c-8f1c-edcba9e0ffe7)
 
